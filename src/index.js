@@ -4,37 +4,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector('#new-task-description');
   form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  // Creating list and delete button elements
+  
   const list = document.createElement('li');
   const tasks = document.querySelector('#tasks');
-  const btn = document.createElement('button');
-  btn.addEventListener('click', (e)=> {
+  const deletebtn = document.createElement('button');
+  deletebtn.addEventListener('click', (e)=> {
     e.target.parentNode.remove();
   })
-  btn.textContent = 'x';
+  deletebtn.textContent = 'x';
   list.textContent = `${input.value} `;
   let dropDown = document.querySelector('#drop-down').value;
+
+  // Assign color according to priority
 if (dropDown === 'high-priority'){
   list.style.color = 'red';
 }else if (dropDown === 'medium-priority'){
   list.style.color = 'yellow';
 }else if (dropDown === 'low-priority'){
   list.style.color = 'green';}
-  list.appendChild(btn);
+  
+  // Append list and delete button
+  list.appendChild(deletebtn);
   tasks.appendChild(list)
   e.target.input.value
    }   
 )})
 
-// function determinePriority(){
-// let priority = document.querySelector('#drop-down');
-// let dropDownValue = priority.options;
-// let text = li.textContent;
-// if (priority === 'high-priority'){
-//   text.style.color = 'red';
-// }else if (priority === 'medium-priority'){
-//   text.style.color = 'yellow';
-// }else if (priority === 'low-priority'){
-//   text.style.color = 'green';
-// }}
-// determinePriority(target.input.value);
+
 
